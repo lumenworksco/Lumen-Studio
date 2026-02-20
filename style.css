@@ -161,15 +161,6 @@ img { max-width: 100%; display: block; }
     z-index: 0;
 }
 
-.hero-banner {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.35;
-}
-
 .hero-glow {
     position: absolute;
     top: 10%;
@@ -181,12 +172,6 @@ img { max-width: 100%; display: block; }
     opacity: 0.5;
     filter: blur(80px);
     animation: glow-pulse 6s ease-in-out infinite alternate;
-}
-
-.hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(180deg, rgba(10, 10, 15, 0.3) 0%, rgba(10, 10, 15, 0.85) 70%, var(--bg) 100%);
 }
 
 @keyframes glow-pulse {
@@ -201,11 +186,11 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-logo {
-    width: 80px;
-    height: 80px;
-    border-radius: 18px;
-    margin: 0 auto 32px;
-    box-shadow: 0 8px 32px rgba(74, 108, 247, 0.2);
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    margin: 0 auto 24px;
+    box-shadow: 0 4px 20px rgba(74, 108, 247, 0.15);
 }
 
 .hero-label {
@@ -661,9 +646,9 @@ img { max-width: 100%; display: block; }
     }
 
     .hero-logo {
-        width: 64px;
-        height: 64px;
-        border-radius: 14px;
+        width: 40px;
+        height: 40px;
+        border-radius: 9px;
     }
 
     .hero-title {
