@@ -6,17 +6,20 @@
 }
 
 :root {
-    --bg: #0a0a0b;
-    --bg-raised: #111113;
-    --bg-card: #161618;
-    --border: #222225;
-    --border-hover: #333338;
-    --text: #ededef;
-    --text-muted: #8a8a8e;
-    --text-dim: #5a5a5e;
-    --accent: #f59e0b;
-    --accent-dim: rgba(245, 158, 11, 0.12);
-    --accent-glow: rgba(245, 158, 11, 0.25);
+    --bg: #0a0a0f;
+    --bg-raised: #0f0f18;
+    --bg-card: #12121e;
+    --border: #1e1e30;
+    --border-hover: #2e2e48;
+    --text: #ededf2;
+    --text-muted: #8a8a9e;
+    --text-dim: #5a5a6e;
+    --accent: #4a6cf7;
+    --accent-light: #7b93fa;
+    --accent-dim: rgba(74, 108, 247, 0.12);
+    --accent-glow: rgba(74, 108, 247, 0.3);
+    --gradient-start: #4a6cf7;
+    --gradient-end: #8b5cf6;
     --radius: 12px;
     --radius-lg: 20px;
     --font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
@@ -64,7 +67,7 @@ img { max-width: 100%; display: block; }
 }
 
 .nav.scrolled {
-    background: rgba(10, 10, 11, 0.85);
+    background: rgba(10, 10, 15, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
@@ -82,16 +85,17 @@ img { max-width: 100%; display: block; }
 .nav-logo {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     font-weight: 600;
     font-size: 1.1rem;
     letter-spacing: -0.01em;
 }
 
-.logo-icon {
-    width: 28px;
-    height: 28px;
-    color: var(--accent);
+.nav-logo-img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    object-fit: cover;
 }
 
 .nav-links {
@@ -157,22 +161,37 @@ img { max-width: 100%; display: block; }
     z-index: 0;
 }
 
+.hero-banner {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+}
+
 .hero-glow {
     position: absolute;
-    top: 15%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
-    width: 700px;
-    height: 700px;
-    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-    opacity: 0.4;
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(ellipse, var(--accent-glow) 0%, rgba(139, 92, 246, 0.15) 40%, transparent 70%);
+    opacity: 0.5;
     filter: blur(80px);
     animation: glow-pulse 6s ease-in-out infinite alternate;
 }
 
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.3) 0%, rgba(10, 10, 15, 0.85) 70%, var(--bg) 100%);
+}
+
 @keyframes glow-pulse {
-    0% { opacity: 0.3; transform: translateX(-50%) scale(0.95); }
-    100% { opacity: 0.5; transform: translateX(-50%) scale(1.05); }
+    0% { opacity: 0.4; transform: translateX(-50%) scale(0.95); }
+    100% { opacity: 0.6; transform: translateX(-50%) scale(1.05); }
 }
 
 .hero-content {
@@ -181,13 +200,21 @@ img { max-width: 100%; display: block; }
     max-width: 780px;
 }
 
+.hero-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 18px;
+    margin: 0 auto 32px;
+    box-shadow: 0 8px 32px rgba(74, 108, 247, 0.2);
+}
+
 .hero-label {
     display: inline-block;
     font-size: 0.8rem;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-bottom: 24px;
     padding: 6px 16px;
     border: 1px solid var(--accent-dim);
@@ -204,7 +231,7 @@ img { max-width: 100%; display: block; }
 }
 
 .hero-accent {
-    background: linear-gradient(135deg, var(--accent), #fbbf24, #f97316);
+    background: linear-gradient(135deg, var(--gradient-start), var(--accent-light), var(--gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -262,14 +289,14 @@ img { max-width: 100%; display: block; }
 }
 
 .btn-primary {
-    background: var(--accent);
-    color: #0a0a0b;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    color: #fff;
 }
 
 .btn-primary:hover {
-    background: #fbbf24;
-    box-shadow: 0 0 30px var(--accent-glow);
+    box-shadow: 0 4px 30px var(--accent-glow);
     transform: translateY(-1px);
+    filter: brightness(1.1);
 }
 
 .btn-secondary {
@@ -307,7 +334,7 @@ img { max-width: 100%; display: block; }
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--accent);
+    color: var(--accent-light);
     margin-bottom: 12px;
 }
 
@@ -352,7 +379,7 @@ img { max-width: 100%; display: block; }
 .project-card:hover {
     border-color: var(--border-hover);
     transform: translateY(-4px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(74, 108, 247, 0.06);
 }
 
 .project-card--large {
@@ -379,7 +406,7 @@ img { max-width: 100%; display: block; }
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-    color: var(--accent);
+    color: var(--accent-light);
 }
 
 .project-icon svg {
@@ -400,7 +427,7 @@ img { max-width: 100%; display: block; }
     padding: 4px 10px;
     border-radius: 6px;
     background: var(--accent-dim);
-    color: var(--accent);
+    color: var(--accent-light);
     letter-spacing: 0.02em;
 }
 
@@ -461,7 +488,10 @@ img { max-width: 100%; display: block; }
     font-size: 2.5rem;
     font-weight: 700;
     letter-spacing: -0.03em;
-    color: var(--accent);
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     line-height: 1;
     margin-bottom: 8px;
 }
@@ -492,7 +522,7 @@ img { max-width: 100%; display: block; }
 
 .tech-item:hover {
     border-color: var(--accent);
-    color: var(--accent);
+    color: var(--accent-light);
     background: var(--accent-dim);
 }
 
@@ -541,9 +571,11 @@ img { max-width: 100%; display: block; }
     font-size: 0.95rem;
 }
 
-.footer-brand .logo-icon {
-    width: 22px;
-    height: 22px;
+.footer-logo-img {
+    width: 24px;
+    height: 24px;
+    border-radius: 5px;
+    object-fit: cover;
 }
 
 .footer-copy {
@@ -626,6 +658,12 @@ img { max-width: 100%; display: block; }
 
     .hero {
         padding: 100px 20px 60px;
+    }
+
+    .hero-logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
     }
 
     .hero-title {
