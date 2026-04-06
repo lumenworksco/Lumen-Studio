@@ -605,7 +605,9 @@ img { max-width: 100%; display: block; }
 
 .spotlight-icon {
     width: 56px;
+    min-width: 56px;
     height: 56px;
+    min-height: 56px;
     border-radius: 14px;
     background: var(--accent-dim);
     display: flex;
@@ -613,11 +615,15 @@ img { max-width: 100%; display: block; }
     justify-content: center;
     margin-bottom: 24px;
     color: var(--accent-light);
+    overflow: hidden;
 }
 
 .spotlight-icon svg {
     width: 28px;
+    min-width: 28px;
     height: 28px;
+    min-height: 28px;
+    flex-shrink: 0;
 }
 
 .spotlight-meta {
