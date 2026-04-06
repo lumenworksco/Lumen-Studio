@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velox — Lumen Studio</title>
+    <meta name="description" content="Velox is a production-grade autonomous algorithmic trading system built on the Alpaca API with 6 diversified strategies and ML-powered risk management.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo.png" alt="Lumen Studio" class="nav-logo-img">
+                Lumen Studio
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="https://github.com/lumenworksco" target="_blank" rel="noopener" class="nav-github">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="project-hero">
+        <div class="project-hero-bg">
+            <div class="project-hero-glow"></div>
+        </div>
+        <div class="container">
+            <a href="index.html#work" class="back-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to projects
+            </a>
+            <div class="project-hero-content">
+                <div class="project-hero-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                </div>
+                <div class="project-hero-meta">
+                    <span class="project-tag">Python</span>
+                    <span class="project-tag">FastAPI</span>
+                    <span class="project-tag">Docker</span>
+                    <span class="project-tag">PostgreSQL</span>
+                </div>
+                <h1 class="project-hero-title">Velox</h1>
+                <p class="project-hero-sub">A production-grade autonomous algorithmic trading system built on the Alpaca API. Designed for consistent returns over big wins, targeting 0.3-0.8% per trade with a 65-75% win rate across 6 diversified strategies.</p>
+                <div class="hero-actions">
+                    <a href="https://github.com/lumenworksco/Velox" target="_blank" rel="noopener" class="btn btn-primary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-stats-section">
+        <div class="container">
+            <div class="project-stats-grid">
+                <div class="project-stat">
+                    <span class="project-stat-number">95.7k</span>
+                    <span class="project-stat-label">Lines of code</span>
+                </div>
+                <div class="project-stat">
+                    <span class="project-stat-number">6</span>
+                    <span class="project-stat-label">Trading strategies</span>
+                </div>
+                <div class="project-stat">
+                    <span class="project-stat-number">900+</span>
+                    <span class="project-stat-label">Tests</span>
+                </div>
+                <div class="project-stat">
+                    <span class="project-stat-number">175</span>
+                    <span class="project-stat-label">Python modules</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail">
+        <div class="container">
+            <div class="detail-section">
+                <div class="section-header">
+                    <p class="section-label">Strategies</p>
+                    <h2 class="section-title">Six diversified trading strategies</h2>
+                </div>
+                <div class="strategy-grid">
+                    <div class="strategy-card">
+                        <div class="strategy-alloc">25%</div>
+                        <h3>StatMeanReversion</h3>
+                        <p>Ornstein-Uhlenbeck process z-scores on 2-minute bars for statistical mean reversion trades.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-alloc">27%</div>
+                        <h3>KalmanPairsTrader</h3>
+                        <p>Kalman filter on cointegrated pairs for spread trading with dynamic hedge ratios.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-alloc">18%</div>
+                        <h3>PEAD</h3>
+                        <p>Post-earnings announcement drift with FinBERT sentiment scoring for directional trades.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-alloc">13%</div>
+                        <h3>VWAP v2 Hybrid</h3>
+                        <p>VWAP combined with OU dual confirmation for high-probability entries on liquid names.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-alloc">12%</div>
+                        <h3>ORB v2</h3>
+                        <p>Opening range breakout with quality filters for capturing early momentum moves.</p>
+                    </div>
+                    <div class="strategy-card">
+                        <div class="strategy-alloc">5%</div>
+                        <h3>IntradayMicroMomentum</h3>
+                        <p>SPY volume spike detection for short-term momentum scalps on high activity.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <div class="section-header">
+                    <p class="section-label">Risk Management</p>
+                    <h2 class="section-title">Multi-layered risk controls</h2>
+                </div>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>18-Stage Signal Pipeline</h3>
+                        <p>ML confidence gating with sector enforcement capped at 30% maximum allocation per sector.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </div>
+                        <h3>Exit Orchestrator</h3>
+                        <p>Unified exit system with a 10-priority cascade handling stops, targets, and time-based exits.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        </div>
+                        <h3>Circuit Breaker</h3>
+                        <p>4-tier system activating from -1% to -4% drawdown to protect capital during adverse conditions.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <h3>VaR Monitoring</h3>
+                        <p>Parametric, historical, and Monte Carlo Value-at-Risk calculations for continuous risk assessment.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><line x1="20" y1="8" x2="20" y2="14"/><line x1="23" y1="11" x2="17" y2="11"/></svg>
+                        </div>
+                        <h3>Beta Neutralizer</h3>
+                        <p>Automatically hedges portfolio exposure with SPY when absolute beta exceeds 0.3 threshold.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                        </div>
+                        <h3>Correlation Limiter</h3>
+                        <p>Eigenvalue-based effective bet calculation prevents over-concentration in correlated positions.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <div class="section-header">
+                    <p class="section-label">Intelligence</p>
+                    <h2 class="section-title">ML-powered decision making</h2>
+                </div>
+                <div class="ml-grid">
+                    <div class="ml-card">
+                        <h3>ML Ensemble</h3>
+                        <p>4-model averaging system achieving 0.947 AUC with 50 core features for high-confidence trade signals.</p>
+                    </div>
+                    <div class="ml-card">
+                        <h3>FinBERT Sentiment</h3>
+                        <p>Local NLP model scoring earnings sentiment without paid API dependencies for the PEAD strategy.</p>
+                    </div>
+                    <div class="ml-card">
+                        <h3>Adaptive Scanning</h3>
+                        <p>Dynamic scan intervals that adjust frequency based on real-time market activity levels.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="detail-section">
+                <div class="section-header">
+                    <p class="section-label">Infrastructure</p>
+                    <h2 class="section-title">Built for production</h2>
+                </div>
+                <div class="tech-detail-grid">
+                    <div class="tech-detail-card">
+                        <h4>Stack</h4>
+                        <div class="tech-tags">
+                            <span class="project-tag">Python 3.12+</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">SQLAlchemy</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">NumPy</span>
+                            <span class="project-tag">scikit-learn</span>
+                        </div>
+                    </div>
+                    <div class="tech-detail-card">
+                        <h4>Infrastructure</h4>
+                        <div class="tech-tags">
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Prometheus</span>
+                            <span class="project-tag">Grafana</span>
+                            <span class="project-tag">Alertmanager</span>
+                        </div>
+                    </div>
+                    <div class="tech-detail-card">
+                        <h4>Architecture</h4>
+                        <ul class="arch-list">
+                            <li>6-service Docker stack</li>
+                            <li>7-state OMS machine</li>
+                            <li>TWAP execution for large orders</li>
+                            <li>Position recovery on restart</li>
+                            <li>Kill switch for emergency halt</li>
+                        </ul>
+                    </div>
+                    <div class="tech-detail-card">
+                        <h4>Observability</h4>
+                        <ul class="arch-list">
+                            <li>Structured logging with correlation IDs</li>
+                            <li>Prometheus metrics export</li>
+                            <li>Web dashboard at port 8080</li>
+                            <li>8-type health alert system</li>
+                            <li>Daily Telegram reports</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-cta">
+        <div class="container">
+            <div class="contact-inner">
+                <p class="section-label">Explore</p>
+                <h2 class="section-title">See the full source</h2>
+                <p class="contact-sub">Velox is open-source and available on GitHub.</p>
+                <div class="contact-links">
+                    <a href="https://github.com/lumenworksco/Velox" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View on GitHub
+                    </a>
+                    <a href="index.html#work" class="btn btn-ghost btn-lg">
+                        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                        All projects
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Lumen Studio" class="footer-logo-img">
+                    Lumen Studio
+                </div>
+                <p class="footer-copy">&copy; 2025 Lumen Studio. Luxembourg.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
