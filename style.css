@@ -560,15 +560,132 @@ img { max-width: 100%; display: block; }
     color: var(--text-dim);
 }
 
-/* ===== Featured Project Card ===== */
-.project-card-featured {
-    border-color: rgba(74, 108, 247, 0.25);
-    background: linear-gradient(135deg, rgba(74, 108, 247, 0.06), rgba(139, 92, 246, 0.06));
+/* ===== Spotlight Section ===== */
+.spotlight {
+    padding: 120px 0;
+    border-bottom: 1px solid var(--border);
 }
 
-.project-card-featured:hover {
+.spotlight-card {
+    display: block;
+    position: relative;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(74, 108, 247, 0.25);
+    overflow: hidden;
+    transition: all var(--transition);
+}
+
+.spotlight-card:hover {
     border-color: rgba(74, 108, 247, 0.4);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4), 0 0 60px rgba(74, 108, 247, 0.1);
+    transform: translateY(-4px);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4), 0 0 80px rgba(74, 108, 247, 0.08);
+}
+
+.spotlight-card-inner {
+    position: relative;
+    background: linear-gradient(135deg, rgba(74, 108, 247, 0.06), rgba(139, 92, 246, 0.04));
+}
+
+.spotlight-content {
+    position: relative;
+    z-index: 1;
+    padding: 48px;
+}
+
+.spotlight-glow {
+    position: absolute;
+    top: -40%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(ellipse, rgba(74, 108, 247, 0.12) 0%, transparent 70%);
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.spotlight-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 14px;
+    background: var(--accent-dim);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    color: var(--accent-light);
+}
+
+.spotlight-icon svg {
+    width: 28px;
+    height: 28px;
+}
+
+.spotlight-meta {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.spotlight-card h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.spotlight-card p {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 640px;
+}
+
+.spotlight-stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+}
+
+.spotlight-stat-num {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.spotlight-stat-label {
+    font-size: 0.8rem;
+    color: var(--text-dim);
+}
+
+.spotlight-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 32px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--accent-light);
+    transition: gap var(--transition);
+}
+
+.spotlight-card:hover .spotlight-link {
+    gap: 12px;
+}
+
+.nav-velox {
+    color: var(--accent-light) !important;
+    font-weight: 500;
 }
 
 /* ===== Project Detail Page ===== */
@@ -983,6 +1100,14 @@ img { max-width: 100%; display: block; }
     .feature-grid,
     .ml-grid {
         grid-template-columns: 1fr;
+    }
+
+    .spotlight-content {
+        padding: 28px;
+    }
+
+    .spotlight-stats {
+        gap: 24px;
     }
 
     .project-hero {

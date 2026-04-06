@@ -39,7 +39,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Add fade-in class to elements
-document.querySelectorAll('.section-header, .project-card, .about-text, .about-stats, .stat, .contact-inner, .tech-strip, .project-hero-content, .project-stat, .strategy-card, .feature-card, .ml-card, .tech-detail-card, .detail-section').forEach(el => {
+document.querySelectorAll('.section-header, .project-card, .about-text, .about-stats, .stat, .contact-inner, .tech-strip, .spotlight-card, .project-hero-content, .project-stat, .strategy-card, .feature-card, .ml-card, .tech-detail-card, .detail-section').forEach(el => {
     el.classList.add('fade-in');
     observer.observe(el);
 });
