@@ -694,6 +694,11 @@ img { max-width: 100%; display: block; }
     font-weight: 500;
 }
 
+.nav-piste {
+    color: var(--accent-light) !important;
+    font-weight: 500;
+}
+
 /* ===== Project Detail Page ===== */
 .project-hero {
     position: relative;
