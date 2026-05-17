@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <!-- Glow blur -->
+    <filter id="blur" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="55"/>
+    </filter>
+    <filter id="blurSm" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="30"/>
+    </filter>
+
+    <!-- Gradient for text / borders -->
+    <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%"   stop-color="#4a6cf7"/>
+      <stop offset="45%"  stop-color="#7b93fa"/>
+      <stop offset="100%" stop-color="#8b5cf6"/>
+    </linearGradient>
+
+    <!-- Vertical line gradient -->
+    <linearGradient id="vgrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%"   stop-color="#4a6cf7" stop-opacity="0"/>
+      <stop offset="25%"  stop-color="#4a6cf7" stop-opacity="1"/>
+      <stop offset="75%"  stop-color="#8b5cf6" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#8b5cf6" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Dot grid -->
+    <pattern id="dots" width="28" height="28" patternUnits="userSpaceOnUse">
+      <circle cx="14" cy="14" r="1.2" fill="#161624"/>
+    </pattern>
+
+    <!-- Card clip paths -->
+    <clipPath id="cc1"><rect x="658" y="52"  width="502" height="148" rx="14"/></clipPath>
+    <clipPath id="cc2"><rect x="658" y="230" width="502" height="148" rx="14"/></clipPath>
+    <clipPath id="cc3"><rect x="658" y="408" width="502" height="148" rx="14"/></clipPath>
+  </defs>
+
+  <!-- ── BACKGROUND ───────────────────────────────────────────────── -->
+  <rect width="1200" height="630" fill="#0a0a0f"/>
+  <rect width="1200" height="630" fill="url(#dots)"/>
+
+  <!-- Glow blobs -->
+  <ellipse cx="300" cy="310" rx="370" ry="290" fill="#4a6cf7" opacity="0.16" filter="url(#blur)"/>
+  <ellipse cx="1040" cy="110" rx="270" ry="220" fill="#8b5cf6" opacity="0.14" filter="url(#blur)"/>
+  <ellipse cx="920"  cy="555" rx="200" ry="150" fill="#4a6cf7" opacity="0.10" filter="url(#blurSm)"/>
+
+  <!-- Subtle vignette edges -->
+  <rect width="1200" height="630" fill="rgba(0,0,0,0.28)" style="mask-image:radial-gradient(ellipse 80% 80% at 50% 50%, transparent 60%, black 100%)"/>
+
+  <!-- ── LEFT CONTENT ──────────────────────────────────────────────── -->
+
+  <!-- Vertical accent line -->
+  <line x1="64" y1="112" x2="64" y2="518" stroke="url(#vgrad)" stroke-width="2"/>
+
+  <!-- Badge pill -->
+  <rect x="82" y="112" width="228" height="30" rx="15"
+    fill="rgba(74,108,247,0.10)" stroke="rgba(74,108,247,0.32)" stroke-width="1"/>
+  <text x="196" y="132"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+    font-size="11" font-weight="600" fill="#7b93fa"
+    text-anchor="middle" letter-spacing="2.2">AI RESEARCH STUDIO</text>
+
+  <!-- "lumen." wordmark -->
+  <text x="82" y="260"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+    font-size="88" font-weight="700" fill="#ededf2" letter-spacing="-3">lumen.</text>
+
+  <!-- Tagline -->
+  <text x="82" y="325"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+    font-size="34" font-weight="700" fill="url(#grad)">AI research.</text>
+  <text x="82" y="372"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+    font-size="34" font-weight="700" fill="url(#grad)">Brilliantly built.</text>
+
+  <!-- Description -->
+  <text x="82" y="422"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+    font-size="15" fill="#8a8a9e">Autonomous trading · NLP models · AI-powered tools</text>
+
+  <!-- Project chips -->
+  <rect x="82"  y="448" width="66" height="24" rx="5" fill="rgba(74,108,247,0.10)" stroke="#1e1e30" stroke-width="1"/>
+  <text x="115" y="464" font-family="sans-serif" font-size="11" font-weight="500" fill="#7b93fa" text-anchor="middle">Velox</text>
+
+  <rect x="158" y="448" width="58" height="24" rx="5" fill="rgba(74,108,247,0.10)" stroke="#1e1e30" stroke-width="1"/>
+  <text x="187" y="464" font-family="sans-serif" font-size="11" font-weight="500" fill="#7b93fa" text-anchor="middle">Piste</text>
+
+  <rect x="226" y="448" width="74" height="24" rx="5" fill="rgba(74,108,247,0.10)" stroke="#1e1e30" stroke-width="1"/>
+  <text x="263" y="464" font-family="sans-serif" font-size="11" font-weight="500" fill="#7b93fa" text-anchor="middle">FinSight</text>
+
+  <rect x="310" y="448" width="84" height="24" rx="5" fill="rgba(74,108,247,0.10)" stroke="#1e1e30" stroke-width="1"/>
+  <text x="352" y="464" font-family="sans-serif" font-size="11" font-weight="500" fill="#7b93fa" text-anchor="middle">J.A.R.V.I.S</text>
+
+  <!-- URL bottom-left -->
+  <text x="82" y="582"
+    font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif"
+    font-size="13" fill="#5a5a6e">lumenworksco.github.io</text>
+
+  <!-- Separator -->
+  <line x1="636" y1="36" x2="636" y2="594" stroke="#1e1e30" stroke-width="1" opacity="0.6"/>
+
+  <!-- ── RIGHT CARDS ────────────────────────────────────────────────── -->
+
+  <!-- ▸ CARD 1 – Velox -->
+  <rect x="658" y="52" width="502" height="148" rx="14" fill="#11111d" stroke="#1e1e30" stroke-width="1"/>
+  <!-- gradient top border -->
+  <rect x="658" y="52" width="502" height="2.5" rx="1.5" fill="url(#grad)"/>
+
+  <!-- Icon circle -->
+  <circle cx="704" cy="116" r="22" fill="rgba(74,108,247,0.12)" stroke="rgba(74,108,247,0.26)" stroke-width="1"/>
+  <!-- Trending up icon (SVG path) -->
+  <g clip-path="url(#cc1)">
+    <polyline points="695,124 701,116 708,120 718,109" fill="none" stroke="#7b93fa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <polyline points="713,109 718,109 718,114"        fill="none" stroke="#7b93fa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Text -->
+  <text x="740" y="104" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="17" font-weight="600" fill="#ededf2">Velox</text>
+  <text x="740" y="124" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="12" fill="#8a8a9e">Autonomous Trading System</text>
+  <rect x="740" y="138" width="86" height="20" rx="4" fill="rgba(74,108,247,0.10)" stroke="#2e2e48" stroke-width="1"/>
+  <text x="783" y="152" font-family="sans-serif" font-size="10" font-weight="600" fill="#7b93fa" text-anchor="middle">Python · AI</text>
+
+  <!-- Mini stock chart -->
+  <g clip-path="url(#cc1)">
+    <polyline points="872,158 897,138 917,148 941,121 963,134 986,112 1009,124 1033,100 1055,113 1078,88 1101,102 1124,78 1148,92"
+      fill="none" stroke="#4a6cf7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+    <polyline points="872,170 897,165 917,174 941,157 963,168 986,153 1009,163 1033,147 1055,160 1078,142 1101,155 1124,136 1148,150"
+      fill="none" stroke="#8b5cf6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.45"/>
+    <!-- Area fill under chart -->
+    <polygon points="872,170 897,138 917,148 941,121 963,134 986,112 1009,124 1033,100 1055,113 1078,88 1101,102 1124,78 1148,92 1148,196 872,196"
+      fill="rgba(74,108,247,0.06)"/>
+  </g>
+
+  <!-- ▸ CARD 2 – Piste -->
+  <rect x="658" y="230" width="502" height="148" rx="14" fill="#11111d" stroke="#1e1e30" stroke-width="1"/>
+  <rect x="658" y="230" width="502" height="2.5" rx="1.5" fill="url(#grad)"/>
+
+  <!-- Icon circle -->
+  <circle cx="704" cy="294" r="22" fill="rgba(139,92,246,0.12)" stroke="rgba(139,92,246,0.26)" stroke-width="1"/>
+  <!-- Mountain icon -->
+  <g clip-path="url(#cc2)">
+    <path d="M 695 306 L 704 282 L 713 306 Z" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linejoin="round"/>
+    <line x1="697" y1="306" x2="711" y2="306" stroke="#a78bfa" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Text -->
+  <text x="740" y="282" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="17" font-weight="600" fill="#ededf2">Piste</text>
+  <text x="740" y="302" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="12" fill="#8a8a9e">Ski Companion App</text>
+  <rect x="740" y="316" width="100" height="20" rx="4" fill="rgba(139,92,246,0.10)" stroke="#2e2e48" stroke-width="1"/>
+  <text x="790" y="330" font-family="sans-serif" font-size="10" font-weight="600" fill="#a78bfa" text-anchor="middle">Android · Kotlin</text>
+
+  <!-- Mountain silhouette -->
+  <g clip-path="url(#cc2)">
+    <path d="M 865 374 L 905 295 L 945 318 L 985 272 L 1025 300 L 1065 260 L 1105 285 L 1145 252 L 1160 374 Z"
+      fill="rgba(139,92,246,0.10)"/>
+    <path d="M 865 374 L 905 295 L 945 318 L 985 272 L 1025 300 L 1065 260 L 1105 285 L 1145 252"
+      fill="none" stroke="#8b5cf6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.75"/>
+    <!-- Snow caps -->
+    <path d="M 983 272 L 991 286 L 975 286 Z" fill="rgba(237,237,242,0.45)"/>
+    <path d="M 1063 260 L 1073 275 L 1053 275 Z" fill="rgba(237,237,242,0.45)"/>
+    <path d="M 1143 252 L 1153 267 L 1133 267 Z" fill="rgba(237,237,242,0.45)"/>
+  </g>
+
+  <!-- ▸ CARD 3 – FinSight -->
+  <rect x="658" y="408" width="502" height="148" rx="14" fill="#11111d" stroke="#1e1e30" stroke-width="1"/>
+  <rect x="658" y="408" width="502" height="2.5" rx="1.5" fill="url(#grad)"/>
+
+  <!-- Icon circle -->
+  <circle cx="704" cy="472" r="22" fill="rgba(74,108,247,0.12)" stroke="rgba(74,108,247,0.26)" stroke-width="1"/>
+  <!-- Bar chart icon -->
+  <g clip-path="url(#cc3)">
+    <rect x="698" y="476" width="5" height="12" rx="1" fill="#7b93fa"/>
+    <rect x="707" y="469" width="5" height="19" rx="1" fill="#7b93fa"/>
+    <rect x="716" y="462" width="5" height="26" rx="1" fill="#7b93fa"/>
+  </g>
+
+  <!-- Text -->
+  <text x="740" y="460" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="17" font-weight="600" fill="#ededf2">FinSight</text>
+  <text x="740" y="480" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="12" fill="#8a8a9e">Bloomberg Terminal CLI</text>
+  <rect x="740" y="494" width="90" height="20" rx="4" fill="rgba(74,108,247,0.10)" stroke="#2e2e48" stroke-width="1"/>
+  <text x="785" y="508" font-family="sans-serif" font-size="10" font-weight="600" fill="#7b93fa" text-anchor="middle">Python · LLM</text>
+
+  <!-- Bar chart decoration -->
+  <g clip-path="url(#cc3)">
+    <rect x="874" y="506" width="16" height="44" rx="2" fill="#4a6cf7" opacity="0.28"/>
+    <rect x="900" y="492" width="16" height="58" rx="2" fill="#4a6cf7" opacity="0.38"/>
+    <rect x="926" y="499" width="16" height="51" rx="2" fill="#8b5cf6" opacity="0.32"/>
+    <rect x="952" y="480" width="16" height="70" rx="2" fill="#4a6cf7" opacity="0.48"/>
+    <rect x="978" y="493" width="16" height="57" rx="2" fill="#8b5cf6" opacity="0.36"/>
+    <rect x="1004" y="483" width="16" height="67" rx="2" fill="#4a6cf7" opacity="0.52"/>
+    <rect x="1030" y="470" width="16" height="80" rx="2" fill="#4a6cf7" opacity="0.42"/>
+    <rect x="1056" y="486" width="16" height="64" rx="2" fill="#8b5cf6" opacity="0.46"/>
+    <rect x="1082" y="462" width="16" height="88" rx="2" fill="#4a6cf7" opacity="0.58"/>
+    <rect x="1108" y="476" width="16" height="74" rx="2" fill="#4a6cf7" opacity="0.52"/>
+    <rect x="1134" y="466" width="16" height="84" rx="2" fill="#8b5cf6" opacity="0.50"/>
+    <!-- Trend line -->
+    <polyline points="882,504 908,490 934,497 960,478 986,491 1012,481 1038,468 1064,484 1090,460 1116,474 1142,464"
+      fill="none" stroke="#7b93fa" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>
+  </g>
+</svg>
