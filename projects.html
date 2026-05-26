@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Lumen Studio</title>
+    <meta name="description" content="All projects built by Lumen Studio — spanning autonomous trading systems, mobile apps, AI tools, and open-source utilities.">
+    <meta property="og:type"        content="website">
+    <meta property="og:title"       content="Projects — Lumen Studio">
+    <meta property="og:description" content="All projects built by Lumen Studio — spanning autonomous trading systems, mobile apps, AI tools, and open-source utilities.">
+    <meta property="og:image"       content="assets/og-image.png">
+    <meta name="twitter:card"       content="summary_large_image">
+    <meta name="twitter:title"      content="Projects — Lumen Studio">
+    <meta name="twitter:description" content="All projects built by Lumen Studio — spanning autonomous trading systems, mobile apps, AI tools, and open-source utilities.">
+    <meta name="twitter:image"      content="assets/og-image.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/logo.png" type="image/png">
+    <style>
+        /* ── Projects page extras ── */
+        .projects-hero {
+            position: relative;
+            padding: 160px 0 80px;
+            overflow: hidden;
+        }
+
+        .projects-hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .projects-hero-glow {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 800px;
+            height: 600px;
+            background: radial-gradient(ellipse, var(--accent-glow) 0%, rgba(139,92,246,0.15) 40%, transparent 70%);
+            opacity: 0.4;
+            filter: blur(80px);
+        }
+
+        .projects-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 640px;
+        }
+
+        .projects-section {
+            padding: 80px 0 120px;
+        }
+
+        /* ── Filter bar ── */
+        .filter-bar {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+
+        .filter-btn {
+            padding: 7px 16px;
+            border-radius: 100px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            font-family: var(--font);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: var(--accent-dim);
+        }
+
+        /* ── Project cards (richer) ── */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .proj-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            overflow: hidden;
+            transition: all var(--transition);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .proj-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(74,108,247,0.06);
+        }
+
+        .proj-card-body {
+            padding: 28px 28px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proj-card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .proj-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--accent-dim);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-light);
+            flex-shrink: 0;
+        }
+
+        .proj-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .proj-badges {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .badge-platform {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            padding: 3px 9px;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .badge-status-active {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            padding: 3px 9px;
+            border-radius: 100px;
+            background: rgba(74,222,128,0.08);
+            border: 1px solid rgba(74,222,128,0.22);
+            color: rgba(74,222,128,0.9);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .badge-status-done {
+            font-size: 0.72rem;
+            font-family: var(--font-mono);
+            padding: 3px 9px;
+            border-radius: 100px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+
+        .proj-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .proj-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.65;
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        .proj-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 20px;
+        }
+
+        .proj-card-footer {
+            display: flex;
+            gap: 10px;
+            padding: 16px 28px;
+            border-top: 1px solid var(--border);
+            background: var(--bg-raised);
+        }
+
+        .proj-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.82rem;
+            padding: 6px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: all var(--transition);
+            background: transparent;
+        }
+
+        .proj-link:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            background: var(--accent-dim);
+        }
+
+        .proj-link svg {
+            width: 13px;
+            height: 13px;
+        }
+
+        .proj-link-primary {
+            background: var(--accent-dim);
+            border-color: rgba(74,108,247,0.3);
+            color: var(--accent-light);
+        }
+
+        .proj-link-primary:hover {
+            background: rgba(74,108,247,0.2);
+            border-color: var(--accent);
+        }
+
+        /* ── Flagship card (full-width) ── */
+        .proj-card-flagship {
+            grid-column: 1 / -1;
+            flex-direction: row;
+        }
+
+        .proj-card-flagship .proj-card-body {
+            flex: 1;
+        }
+
+        .proj-card-flagship .proj-card-footer {
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 28px;
+            border-top: none;
+            border-left: 1px solid var(--border);
+            min-width: 200px;
+            background: transparent;
+        }
+
+        /* ── No-link card ── */
+        .proj-card-nolink {
+            cursor: default;
+        }
+
+        .proj-card-nolink:hover {
+            transform: none;
+            box-shadow: none;
+            border-color: var(--border-hover);
+        }
+
+        @media (max-width: 900px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .proj-card-flagship {
+                flex-direction: column;
+            }
+
+            .proj-card-flagship .proj-card-footer {
+                flex-direction: row;
+                border-left: none;
+                border-top: 1px solid var(--border);
+                padding: 16px 28px;
+                background: var(--bg-raised);
+                min-width: unset;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .projects-hero {
+                padding: 120px 0 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo.png" alt="Lumen Studio" class="nav-logo-img">
+                Lumen Studio
+            </a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="velox.html" class="nav-velox">Velox</a></li>
+                <li><a href="piste.html" class="nav-piste">Piste</a></li>
+                <li><a href="projects.html" class="nav-projects">Projects</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="https://github.com/lumenworksco" target="_blank" rel="noopener" class="nav-github">GitHub</a></li>
+                <li><a href="https://huggingface.co/iPwnds" target="_blank" rel="noopener">Hugging Face</a></li>
+                <li><a href="https://www.linkedin.com/in/braunflorian25/" target="_blank" rel="noopener">LinkedIn</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="projects-hero">
+        <div class="projects-hero-bg">
+            <div class="projects-hero-glow"></div>
+        </div>
+        <div class="container">
+            <a href="index.html" class="back-link">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Home
+            </a>
+            <div class="projects-hero-content fade-in">
+                <p class="section-label">Our Work</p>
+                <h1 class="project-hero-title">All Projects</h1>
+                <p class="project-hero-sub">Everything we've built — autonomous systems, mobile apps, AI tools, and open-source utilities. Each project shipped from scratch to production.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section">
+        <div class="container">
+
+            <!-- Filter bar -->
+            <div class="filter-bar" id="filter-bar">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI &amp; ML</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="trading">Trading</button>
+                <button class="filter-btn" data-filter="tool">Tools</button>
+            </div>
+
+            <!-- Grid -->
+            <div class="projects-grid" id="projects-grid">
+
+                <!-- Velox — flagship -->
+                <div class="proj-card proj-card-flagship fade-in" data-category="trading ai">
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <div class="proj-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                            </div>
+                            <div class="proj-badges">
+                                <span class="badge-platform">Python · CLI</span>
+                                <span class="badge-status-active">Active</span>
+                            </div>
+                        </div>
+                        <p class="proj-name">Velox</p>
+                        <p class="proj-desc">Production-grade autonomous algorithmic trading system built on the Alpaca API. Six diversified strategies, an 18-stage ML signal pipeline with 0.947 AUC, and a multi-layered risk management engine. Targeting 0.3–0.8% per trade with a 65–75% win rate.</p>
+                        <div class="proj-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">FastAPI</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">Prometheus</span>
+                            <span class="project-tag">Grafana</span>
+                        </div>
+                        <div style="display:flex;gap:32px;padding-top:20px;border-top:1px solid var(--border);flex-wrap:wrap;">
+                            <div>
+                                <span style="display:block;font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;">95.7k</span>
+                                <span style="font-size:0.78rem;color:var(--text-dim);">Lines of code</span>
+                            </div>
+                            <div>
+                                <span style="display:block;font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;">900+</span>
+                                <span style="font-size:0.78rem;color:var(--text-dim);">Tests</span>
+                            </div>
+                            <div>
+                                <span style="display:block;font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;">6</span>
+                                <span style="font-size:0.78rem;color:var(--text-dim);">Strategies</span>
+                            </div>
+                            <div>
+                                <span style="display:block;font-size:1.4rem;font-weight:700;letter-spacing:-0.02em;background:linear-gradient(135deg,var(--gradient-start),var(--gradient-end));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:4px;">175</span>
+                                <span style="font-size:0.78rem;color:var(--text-dim);">Modules</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="proj-card-footer">
+                        <a href="velox.html" class="proj-link proj-link-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            Full details
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CalmCampus -->
+                <div class="proj-card fade-in" data-category="mobile ai">
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <div class="proj-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7z"/><circle cx="12" cy="9" r="2.5"/><path d="M12 11.5v3"/><path d="M10 13h4"/></svg>
+                            </div>
+                            <div class="proj-badges">
+                                <span class="badge-platform">Flutter · iOS · Android</span>
+                                <span class="badge-status-active">Active</span>
+                            </div>
+                        </div>
+                        <p class="proj-name">CalmCampus</p>
+                        <p class="proj-desc">Privacy-first student wellbeing platform that passively detects burnout risk through behavioural signals and on-device AI. Delivers CBT-based micro-interventions without individual surveillance. Built through the KU Leuven KICK Challenge.</p>
+                        <div class="proj-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Dart</span>
+                            <span class="project-tag">Provider</span>
+                            <span class="project-tag">Hive</span>
+                            <span class="project-tag">On-device AI</span>
+                        </div>
+                    </div>
+                    <div class="proj-card-footer">
+                        <a href="https://calm.braunf.com" target="_blank" rel="noopener" class="proj-link proj-link-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Website
+                        </a>
+                        <a href="https://github.com/lumenworksco/CalmCampus" target="_blank" rel="noopener" class="proj-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Piste -->
+                <div class="proj-card fade-in" data-category="mobile">
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <div class="proj-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 20h18L14 4l-4 8-3-3-4 11z"/></svg>
+                            </div>
+                            <div class="proj-badges">
+                                <span class="badge-platform">Android · Kotlin</span>
+                                <span class="badge-status-active">Active</span>
+                            </div>
+                        </div>
+                        <p class="proj-name">Piste</p>
+                        <p class="proj-desc">Native Android ski companion app with GPS run recording, automatic lift detection, 5 map styles (OSM, topo, satellite, ski overlay, dark), speed heatmaps, activity rings, and weather via Open-Meteo. Privacy-first — no cloud sync.</p>
+                        <div class="proj-tags">
+                            <span class="project-tag">Kotlin</span>
+                            <span class="project-tag">Jetpack Compose</span>
+                            <span class="project-tag">Material 3</span>
+                            <span class="project-tag">osmdroid</span>
+                            <span class="project-tag">Open-Meteo</span>
+                        </div>
+                    </div>
+                    <div class="proj-card-footer">
+                        <a href="piste.html" class="proj-link proj-link-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            Full details
+                        </a>
+                        <a href="https://github.com/lumenworksco/Piste-Formerly-Waypoint" target="_blank" rel="noopener" class="proj-link">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Leafy -->
+                <div class="proj-card fade-in" data-category="mobile ai">
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <div class="proj-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 8C8 10 5.9 16.17 3.82 21.34l1.89.66L7 18c4-2 8-3 12-3V8z"/><path d="M17 8c-4 0-8 2-12 6"/></svg>
+                            </div>
+                            <div class="proj-badges">
+                                <span class="badge-platform">iOS · Android</span>
+                                <span class="badge-status-active">Active</span>
+                            </div>
+                        </div>
+                        <p class="proj-name">Leafy</p>
+                        <p class="proj-desc">Cross-platform plant care app built with React Native and Expo. Features on-device AI for plant identification, a plant doctor, watering analyser, and care assistant. Local SQLite storage with care reminders and a full plant encyclopedia.</p>
+                        <div class="proj-tags">
+                            <span class="project-tag">TypeScript</span>
+                            <span class="project-tag">React Native</span>
+                            <span class="project-tag">Expo</span>
+                            <span class="project-tag">Zustand</span>
+                            <span class="project-tag">SQLite</span>
+                            <span class="project-tag">On-device AI</span>
+                        </div>
+                    </div>
+                    <div class="proj-card-footer">
+                        <a href="https://github.com/lumenworksco/Leafy" target="_blank" rel="noopener" class="proj-link proj-link-primary">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <!-- FinSight -->
+                <div class="proj-card fade-in" data-category="ai tool">
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <div class="proj-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M6 12h.01M9 8l2 2 4-4"/></svg>
+                            </div>
+                            <div class="proj-badges">
+                                <span class="badge-platform">Python · CLI</span>
+                                <span class="badge-status-done">Completed</span>
+                            </div>
+                        </div>
+                        <p class="proj-name">FinSight</p>
+                        <p class="proj-desc">Bloomberg Terminal-style CLI and TUI for financial analysis. Runs two locally-hosted custom AI models (1.5B finance analyst + DistilBERT sentiment) for stock analysis, market sentiment, and natural language queries — entirely offline, no API keys required.</p>
+                        <div class="proj-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Click</span>
+                            <span class="project-tag">Textual</span>
+                            <span class="project-tag">PyTorch</span>
+                            <span class="project-tag">HuggingFace</span>
+                            <span class="project-tag">LoRA</span>
+                        </div>
+                    </div>
+                    <div class="proj-card-footer">
+                        <a href="https://huggingface.co/iPwnds" target="_blank" rel="noopener" class="proj-link proj-link-primary">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                            Models on HF
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Resume -->
+                <div class="proj-card fade-in" data-category="tool">
+                    <div class="proj-card-body">
+                        <div class="proj-card-top">
+                            <div class="proj-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+                            </div>
+                            <div class="proj-badges">
+                                <span class="badge-platform">Python · LaTeX</span>
+                                <span class="badge-status-done">Completed</span>
+                            </div>
+                        </div>
+                        <p class="proj-name">Resume</p>
+                        <p class="proj-desc">Lightweight LaTeX resume builder for generating clean, professional CVs from structured data. Ready-to-use templates with automated compilation. Single source of truth — edit data once, get a polished PDF output.</p>
+                        <div class="proj-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">LaTeX</span>
+                        </div>
+                    </div>
+                    <div class="proj-card-footer">
+                        <a href="https://github.com/lumenworksco/Resume" target="_blank" rel="noopener" class="proj-link proj-link-primary">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="project-cta">
+        <div class="container">
+            <div class="contact-inner">
+                <p class="section-label">Open Source</p>
+                <h2 class="section-title">All on GitHub</h2>
+                <p class="contact-sub">Every project is open-source and available on the Lumen Studio GitHub organisation.</p>
+                <div class="contact-links">
+                    <a href="https://github.com/orgs/lumenworksco/repositories" target="_blank" rel="noopener" class="btn btn-primary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                        View all repositories
+                    </a>
+                    <a href="index.html#contact" class="btn btn-ghost btn-lg">Get in touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-brand">
+                    <img src="assets/logo.png" alt="Lumen Studio" class="footer-logo-img">
+                    Lumen Studio
+                </div>
+                <p class="footer-copy">&copy; 2025 Lumen Studio. Luxembourg.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Category filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('#projects-grid [data-category]');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                cards.forEach(card => {
+                    const cats = card.dataset.category || '';
+                    card.style.display = (filter === 'all' || cats.includes(filter)) ? '' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
