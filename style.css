@@ -1023,6 +1023,26 @@ img { max-width: 100%; display: block; }
     border-top: 1px solid var(--border);
 }
 
+/* ===== FocusTimer nav button ===== */
+.nav-focus {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 8px;
+    background: rgba(255, 59, 48, 0.1);
+    border: 1px solid rgba(255, 59, 48, 0.25);
+    color: #ff6b60 !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.nav-focus:hover {
+    background: rgba(255, 59, 48, 0.18);
+    border-color: rgba(255, 59, 48, 0.45);
+    color: #ff8a82 !important;
+}
+
 /* ===== Animations ===== */
 .fade-in {
     opacity: 0;
