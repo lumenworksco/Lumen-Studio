@@ -1043,6 +1043,26 @@ img { max-width: 100%; display: block; }
     color: #ff8a82 !important;
 }
 
+/* ===== Tokn nav button ===== */
+.nav-tokn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 13px;
+    border-radius: 8px;
+    background: rgba(14, 165, 233, 0.1);
+    border: 1px solid rgba(14, 165, 233, 0.25);
+    color: #38bdf8 !important;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.nav-tokn:hover {
+    background: rgba(14, 165, 233, 0.18);
+    border-color: rgba(14, 165, 233, 0.45);
+    color: #7dd3fc !important;
+}
+
 /* ===== Animations ===== */
 .fade-in {
     opacity: 0;
