@@ -1023,44 +1023,85 @@ img { max-width: 100%; display: block; }
     border-top: 1px solid var(--border);
 }
 
-/* ===== FocusTimer nav button ===== */
-.nav-focus {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    padding: 5px 13px;
-    border-radius: 8px;
-    background: rgba(255, 59, 48, 0.1);
-    border: 1px solid rgba(255, 59, 48, 0.25);
-    color: #ff6b60 !important;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: background var(--transition), border-color var(--transition), color var(--transition);
-}
-.nav-focus:hover {
-    background: rgba(255, 59, 48, 0.18);
-    border-color: rgba(255, 59, 48, 0.45);
-    color: #ff8a82 !important;
+/* ===== Mac Apps nav dropdown ===== */
+.nav-mac-wrapper {
+    position: relative;
 }
 
-/* ===== Tokn nav button ===== */
-.nav-tokn {
+.nav-mac-btn {
     display: inline-flex;
     align-items: center;
     gap: 6px;
     padding: 5px 13px;
     border-radius: 8px;
-    background: rgba(14, 165, 233, 0.1);
-    border: 1px solid rgba(14, 165, 233, 0.25);
-    color: #38bdf8 !important;
+    background: rgba(139, 92, 246, 0.1);
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    color: #a78bfa;
     font-size: 0.875rem;
     font-weight: 500;
+    font-family: var(--font);
+    cursor: pointer;
     transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
-.nav-tokn:hover {
-    background: rgba(14, 165, 233, 0.18);
-    border-color: rgba(14, 165, 233, 0.45);
-    color: #7dd3fc !important;
+.nav-mac-btn:hover,
+.nav-mac-btn.open {
+    background: rgba(139, 92, 246, 0.18);
+    border-color: rgba(139, 92, 246, 0.45);
+    color: #c4b5fd;
+}
+.nav-mac-btn svg {
+    transition: transform var(--transition);
+}
+.nav-mac-btn.open svg {
+    transform: rotate(180deg);
+}
+
+.nav-mac-menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 160px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 6px;
+    z-index: 200;
+    flex-direction: column;
+    gap: 2px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+.nav-mac-menu.open {
+    display: flex;
+}
+
+.nav-mac-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 7px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: background var(--transition), border-color var(--transition), color var(--transition);
+}
+.nav-mac-item-focus {
+    color: #ff6b60;
+}
+.nav-mac-item-focus:hover {
+    background: rgba(255, 59, 48, 0.1);
+    border-color: rgba(255, 59, 48, 0.2);
+    color: #ff8a82;
+}
+.nav-mac-item-tokn {
+    color: #38bdf8;
+}
+.nav-mac-item-tokn:hover {
+    background: rgba(14, 165, 233, 0.1);
+    border-color: rgba(14, 165, 233, 0.2);
+    color: #7dd3fc;
 }
 
 /* ===== Animations ===== */

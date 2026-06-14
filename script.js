@@ -49,6 +49,23 @@ document.querySelectorAll('.project-card, .proj-card').forEach((card, i) => {
     card.style.transitionDelay = `${i * 0.08}s`;
 });
 
+// Mac Apps dropdown
+const macBtn = document.getElementById('mac-apps-btn');
+const macMenu = document.getElementById('mac-apps-menu');
+if (macBtn && macMenu) {
+    macBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = macMenu.classList.toggle('open');
+        macBtn.classList.toggle('open', isOpen);
+        macBtn.setAttribute('aria-expanded', isOpen);
+    });
+    document.addEventListener('click', () => {
+        macMenu.classList.remove('open');
+        macBtn.classList.remove('open');
+        macBtn.setAttribute('aria-expanded', 'false');
+    });
+}
+
 // Smooth scroll for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
