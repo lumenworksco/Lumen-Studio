@@ -1029,9 +1029,11 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-mac-btn {
+    -webkit-appearance: none;
+    appearance: none;
     display: inline-flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     padding: 5px 13px;
     border-radius: 8px;
     background: rgba(139, 92, 246, 0.1);
@@ -1040,7 +1042,9 @@ img { max-width: 100%; display: block; }
     font-size: 0.875rem;
     font-weight: 500;
     font-family: var(--font);
+    line-height: 1.5;
     cursor: pointer;
+    outline: none;
     transition: background var(--transition), border-color var(--transition), color var(--transition);
 }
 .nav-mac-btn:hover,
@@ -1050,6 +1054,7 @@ img { max-width: 100%; display: block; }
     color: #c4b5fd;
 }
 .nav-mac-btn svg {
+    flex-shrink: 0;
     transition: transform var(--transition);
 }
 .nav-mac-btn.open svg {
@@ -1057,22 +1062,30 @@ img { max-width: 100%; display: block; }
 }
 
 .nav-mac-menu {
-    display: none;
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    min-width: 160px;
+    min-width: 170px;
     background: var(--bg-card);
     border: 1px solid var(--border);
     border-radius: 10px;
     padding: 6px;
-    z-index: 200;
+    z-index: 300;
     flex-direction: column;
     gap: 2px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transform: translateY(-6px);
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s;
+    display: flex;
 }
 .nav-mac-menu.open {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .nav-mac-item {
